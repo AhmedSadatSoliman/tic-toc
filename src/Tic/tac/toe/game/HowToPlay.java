@@ -29,7 +29,7 @@ public class HowToPlay extends javax.swing.JFrame {
         jTextArea1.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
         jTextArea1.setForeground(new java.awt.Color(0, 0, 102));
         jTextArea1.setRows(5);
-        jTextArea1.setText("for two players, X and O,\nwho take turns marking the spaces in a 3×3 grid.\nThe player who succeeds in placing\nthree of their marks in\na horizontal, vertical, or diagonal row wins the game.");
+        jTextArea1.setText("for two players, X  and O,\nwho take turns marking the spaces in a 3×3 grid.\nThe player who succeeds in placing\nthree of their marks in\na horizontal, vertical, or diagonal row wins the game.");
         jTextArea1.setEnabled(false);
         jScrollPane1.setViewportView(jTextArea1);
 
