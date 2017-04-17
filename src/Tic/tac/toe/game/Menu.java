@@ -132,12 +132,15 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {                                      
         new HowToPlay().setVisible(true);
+        new TicTacToe().setVisible(false);
         this.setVisible(false);
+        
     }                                     
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {                                      
         new Credits().setVisible(true);
         this.setVisible(false);
+        new TicTacToe().setVisible(false);
     }                                     
 
     /**
