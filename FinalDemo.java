@@ -1,19 +1,6 @@
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package game;
 
-/**
- *
- * @author ON TRACK
- */
-/*
-      title: TicTacToe AI-ENGINE demo 
-     author: Kris Cieslak
-       date: 03.09.2012
-    license: http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US
-   language: java
-*/
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
@@ -239,10 +226,7 @@ public class demo extends JFrame implements ActionListener {
 		lblDraws_1.setBounds(226, 84, 76, 30);
 		contentPane.add(lblDraws_1);
 
-	 /*	btnCvC = new JButton("Computer vs Computer");
-		btnCvC.setBounds(324, 127, 169, 23);
-		btnCvC.addActionListener(this);
-		contentPane.add(btnCvC); */
+	
 	}
 
 	public void actionPerformed(ActionEvent e) {
