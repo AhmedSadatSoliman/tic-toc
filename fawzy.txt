@@ -1,0 +1,242 @@
+
+
+public class JLabelBox extends JLabel {
+
+
+
+		private static final long serialVersionUID = 1L;
+
+		public int Field = 0;
+
+
+	}
+private JPanel contentPane;
+
+	private JButton btnNewGame, btnReset;
+
+	private JLabelBox P1, P2, P3, P4, P5, P6, P7, P8, P9;
+
+	private JLabel lblXWins, lblOWins, lblDraws;
+
+	private TicTacToeAI TTT;
+	
+private JLabel lblXWins_1;
+
+	private JLabel lblOWins_1;
+public demo() {
+
+		TTT = new TicTacToeAI();
+
+		setResizable(false);
+
+		setTitle("TicTacToe - DEMO");
+
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		setBounds(100, 100, 512, 278);
+
+		contentPane = new JPanel();
+
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+
+		contentPane.setLayout(null);
+
+
+		P1 = new JLabelBox();
+
+		P1.Field = 1;
+
+		P1.addMouseListener(new LabelAdapter(P1));
+
+		P1.setFont(new Font("Tahoma", Font.BOLD, 49));
+
+		P1.setForeground(Color.GREEN);
+
+		P1.setBackground(new Color(0, 0, 0));
+
+		P1.setHorizontalAlignment(SwingConstants.CENTER);
+
+		P1.setBounds(10, 10, 64, 64);
+
+		P1.setOpaque(true);
+
+		contentPane.add(P1);
+
+
+		P2 = new JLabelBox();
+
+		P2.Field = 2;
+
+		P2.addMouseListener(new LabelAdapter(P2));
+
+		P2.setOpaque(true);
+
+		P2.setHorizontalAlignment(SwingConstants.CENTER);
+
+		P2.setForeground(Color.GREEN);
+
+		P2.setFont(new Font("Tahoma", Font.BOLD, 49));
+
+		P2.setBackground(Color.BLACK);
+
+		P2.setBounds(76, 10, 64, 64);
+
+		contentPane.add(P2);
+
+
+		P3 = new JLabelBox();
+
+		P3.Field = 3;
+
+		P3.addMouseListener(new LabelAdapter(P3));
+
+		P3.setOpaque(true);
+
+		P3.setHorizontalAlignment(SwingConstants.CENTER);
+
+		P3.setForeground(Color.GREEN);
+
+		P3.setFont(new Font("Tahoma", Font.BOLD, 49));
+
+		P3.setBackground(Color.BLACK);
+
+		P3.setBounds(142, 10, 64, 64);
+
+		contentPane.add(P3);
+
+
+		P4 = new JLabelBox();
+
+		P4.Field = 4;
+
+		P4.addMouseListener(new LabelAdapter(P4));
+
+		P4.setOpaque(true);
+
+		P4.setHorizontalAlignment(SwingConstants.CENTER);
+
+		P4.setForeground(Color.GREEN);
+
+		P4.setFont(new Font("Tahoma", Font.BOLD, 49));
+
+		P4.setBackground(Color.BLACK);
+
+		P4.setBounds(10, 76, 64, 64);
+
+		contentPane.add(P4);
+
+
+		P5 = new JLabelBox();
+
+		P5.Field = 5;
+
+		P5.addMouseListener(new LabelAdapter(P5));
+
+		P5.setOpaque(true);
+
+		P5.setHorizontalAlignment(SwingConstants.CENTER);
+
+		P5.setForeground(Color.GREEN);
+
+		P5.setFont(new Font("Tahoma", Font.BOLD, 49));
+
+		P5.setBackground(Color.BLACK);
+
+		P5.setBounds(76, 76, 64, 64);
+
+		contentPane.add(P5);
+
+
+		P6 = new JLabelBox();
+
+		P6.Field = 6;
+
+		P6.addMouseListener(new LabelAdapter(P6));
+
+		P6.setOpaque(true);
+
+		P6.setHorizontalAlignment(SwingConstants.CENTER);
+
+		P6.setForeground(Color.GREEN);
+
+		P6.setFont(new Font("Tahoma", Font.BOLD, 49));
+
+		P6.setBackground(Color.BLACK);
+
+		P6.setBounds(142, 76, 64, 64);
+
+		contentPane.add(P6);
+
+
+		P7 = new JLabelBox();
+
+		P7.Field = 7;
+
+		P7.addMouseListener(new LabelAdapter(P7));
+
+		P7.setOpaque(true);
+
+		P7.setHorizontalAlignment(SwingConstants.CENTER);
+
+		P7.setForeground(Color.GREEN);
+
+		P7.setFont(new Font("Tahoma", Font.BOLD, 49));
+
+		P7.setBackground(Color.BLACK);
+
+		P7.setBounds(10, 142, 64, 64);
+
+		contentPane.add(P7);
+
+
+		P8 = new JLabelBox();
+
+		P8.Field = 8;
+
+		P8.addMouseListener(new LabelAdapter(P8));
+
+		P8.setOpaque(true);
+
+		P8.setHorizontalAlignment(SwingConstants.CENTER);
+
+		P8.setForeground(Color.GREEN);
+
+		P8.setFont(new Font("Tahoma", Font.BOLD, 49));
+
+		P8.setBackground(Color.BLACK);
+
+		P8.setBounds(76, 142, 64, 64);
+
+		contentPane.add(P8);
+
+
+		P9 = new JLabelBox();
+
+		P9.Field = 9;
+
+		P9.addMouseListener(new LabelAdapter(P9));
+
+		P9.setOpaque(true);
+
+		P9.setHorizontalAlignment(SwingConstants.CENTER);
+
+		P9.setForeground(Color.GREEN);
+
+		P9.setFont(new Font("Tahoma", Font.BOLD, 49));
+
+		P9.setBackground(Color.BLACK);
+
+		P9.setBounds(142, 142, 64, 64);
+
+		contentPane.add(P9);
+
+
+		btnNewGame = new JButton("New game");
+
+		btnNewGame.addActionListener(this);
+
+		btnNewGame.setBounds(10, 216, 197, 23);
+
+		contentPane.add(btnNewGame); }
