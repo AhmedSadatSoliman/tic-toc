@@ -107,5 +107,122 @@ public class TicTacToeAI {
         1024 - drawn
            0 - game still goes on
 	
+*/	
+	private int GameOver() {
+		return Check(X) ? 2048 : Check(O) ? 512 : ((X | O) & 511) == 511 ? 1024 : 0;
+	}
+
+	
+
+/* -==-=-=-=- NegaMax method -==-=-=-=-=-=-=-=-=-=-=-
+    
+    best_value (binary)
+
+          BEST SCORE                    BEST MOVE 
+          2048 1024  512 | 256 128 64  32  16   8   4   2   1
+            0    0    0  |  0   0   0   0   0   0   0   0   0
+            |    |    |     
+   Winner   X    0    O
+   
+       
+    best_value & 0xfffffe00 - clear move bit (get score bits)
+    
+    Worst "best_value" for X - 512 (O wins)
+    Worst "best_value" for O - 2048 (X wins)
+
+*/	
+	private int NegaMax(int p) {
+		int End = GameOver();
+		if (End != 0)
+			return End;
+
+		int best_value = (p == 1) ? 512 : 2048;
+		for (int b = 1; b <= 256; b = b << 1) {
+			int move = (~(X | O) & b);
+			if (move != 0) {
+				put(p * move);
+				int s = NegaMax(-p);
+				best_value = p * (s & 0xfffffe00) > p
+						* (best_value & 0xfffffe00) ? ((s & 0xfffffe00) | move)
+						: best_value;
+				clear(move);
+			}
+
+		}
+		return best_value;
+	}
+
+/* -==-=-=-=- PosToBit/BitToPos method -==-=-=-=-=-=-=-=-=-=-=-
+   
+    Standard field numeration (1,2,3,4,5,6,7,8,9)  
+    bit position (1,2,4,8,16,32,64,128,256)
+	
+*/	
+	private int PosToBit(int pos) {
+		return pos>=1 && pos<=9 ? 1<<(pos-1) : 0;
+	}
+
+	private int BitToPos(int bitNum) {
+		int result = 1;
+		while ( (bitNum=bitNum>>1) > 0 ) result++;   
+        return result;
+	}
+	
+/*
+  -=-= PUBLIC =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--==-=-=-=-=-=-
+ */
+
+/* -==-=-=-=- Move method -==-=-=-=-=-=-=-=-=-=-=-
+    
+    player -  1 or -1
+    pos in [1,2,3,4,5,6,7,8,9]
+
 */
-}	
+	public boolean Move(int pos, int player) {
+		int p = PosToBit(pos);
+		if ( p!=0  && ( player==1 || player==-1 ) && ((X | O) & p)==0) {
+		  put(p*player);
+		  return true;
+		} else
+		  return false; 
+	}
+ 
+	
+ /* -==-=-=-=- GenerateMoveNegaMax method -==-=-=-=-=-=-=-=-=-=-=-
+      Opponent = 1, -1
+ */
+	public int GenerateMove(int Player) {
+		return BitToPos((NegaMax(Player) & 511));
+	}
+
+	
+// -==-=-=-=- getX -==-=-=-=-=-=-=-=-=-=-=- 	
+	public int getX() {
+		return X;
+	}
+
+// -==-=-=-=- getO -==-=-=-=-=-=-=-=-=-=-=-	
+	public int getO() {
+		return O;
+	}
+	
+// -==-=-=-=- getBoard -==-=-=-=-=-=-=-=-=-=-=-
+	public int getBoard() {
+		return (X|O);
+	}
+	
+// -==-=-=-=- ClearBoard -==-=-=-=-=-=-=-=-=-=-=-	
+	public void NewGame() {
+		X=O=0;
+	}
+	
+	/* 1 - X player won
+	  -1 - O player won
+	   2 - drawn
+	   0 - game still goes on
+	*/
+// -==-=-=-=-= isGameOver =-=-=-=-=-=-=-=-=-=-=-=-=-
+	public int isGameOver() {
+		return Check(X) ? 1 : Check(O) ? -1 : ((X | O) & 511) == 511 ? 2 : 0;
+	}
+}
