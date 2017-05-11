@@ -1,14 +1,5 @@
 /*
-      title: TicTacToe AI-ENGINE 
-     author: Kris Cieslak
-       date: 03.09.2012
-    website: digitalinsane.com
-    license: http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US
-   language: java
-   
-   description: 
-      Complete game-tree search/decision algorithm.
-      NegaMax function without recursion depth checking. 
+     
 
  
  Methods:
