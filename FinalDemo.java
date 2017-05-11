@@ -18,11 +18,11 @@ import java.awt.event.ActionEvent;
 import java.util.Random;
 
 public class demo extends JFrame implements ActionListener {
-	private static final long serialVersionUID = 1L;
+	
 
 	public class JLabelBox extends JLabel {
 
-		private static final long serialVersionUID = 1L;
+		
 		public int Field = 0;
 	}
 
@@ -44,16 +44,8 @@ public class demo extends JFrame implements ActionListener {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					demo frame = new demo();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		demo myTeam = new demo();
+		myTeam.setVisible(true);
 	}
 
 	/**
@@ -61,8 +53,7 @@ public class demo extends JFrame implements ActionListener {
 	 */
 	public demo() {
 		TTT = new TicTacToeAI();
-		setResizable(false);
-		setTitle("TicTacToe - DEMO");
+		setTitle("TicTacToe");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 512, 278);
 		contentPane = new JPanel();
@@ -174,18 +165,7 @@ public class demo extends JFrame implements ActionListener {
 		btnNewGame.setBounds(10, 216, 197, 23);
 		contentPane.add(btnNewGame);
 
-		/*JTextArea edtDebug = new JTextArea();
-		edtDebug.setFont(new Font("Tahoma", Font.BOLD, 12));
-		edtDebug.setForeground(new Color(0, 255, 0));
-		edtDebug.setBackground(new Color(0, 0, 0));
-		edtDebug.setBounds(10, 0, 252, 135);
-		contentPane.add(edtDebug);
-
-		JScrollPane scrollBar = new JScrollPane(edtDebug);
-		scrollBar.setBounds(226, 91, 270, 77);
-		scrollBar
-				.setVerticalScrollBarPolicy(scrollBar.VERTICAL_SCROLLBAR_ALWAYS);
-		contentPane.add(scrollBar);*/
+		
 
 		lblXWins = new JLabel("0");
 		lblXWins.setFont(new Font("Tahoma", Font.BOLD, 17));
